@@ -1,0 +1,24 @@
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build files
+bin/
+obj/
+
+# Temporary files
+*.log
+
+# Local database files
+*.mdf
+*.ldf
+
+# Problematic temporary file
+/.849C9593-D756-4E56-8D6E-42412F2A707B
+# Uploaded resumes and private documents
+wwwroot/resumes/
+
+# Accidental extra file
+/,gitignore

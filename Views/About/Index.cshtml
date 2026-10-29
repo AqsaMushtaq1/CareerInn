@@ -1,0 +1,455 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="~/css/about.css" asp-append-version="true" />
+}
+
+
+
+<section class="ci-about-hero position-relative overflow-hidden">
+    <div class="ci-hero-glow ci-glow-1"></div>
+    <div class="ci-hero-glow ci-glow-2"></div>
+    <div class="ci-hero-glow ci-glow-3"></div>
+
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-7">
+                <div class="ci-section-pill mb-4" data-aos="fade-right">
+                    About CareerInn
+                </div>
+
+                <h1 class="ci-about-title" data-aos="fade-up" data-aos-delay="100">
+                    Empowering Careers Through Smart Connections
+                </h1>
+
+                <p class="ci-about-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    CareerInn bridges the gap between talented professionals and top employers through a modern, intelligent, and user-focused career platform.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="/Account/Register" class="btn ci-btn-primary">
+                        Join CareerInn
+                    </a>
+
+                    <a href="#features" class="btn ci-btn-outline">
+                        Explore Features
+                    </a>
+                </div>
+
+                <div class="ci-hero-stats mt-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="ci-stat-card">
+                        <h3>10K+</h3>
+                        <p>Active Users</p>
+                    </div>
+
+                    <div class="ci-stat-card">
+                        <h3>500+</h3>
+                        <p>Companies</p>
+                    </div>
+
+                    <div class="ci-stat-card">
+                        <h3>95%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="ci-hero-visual" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="ci-floating-card card-1">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Top Jobs</span>
+                    </div>
+
+                    <div class="ci-floating-card card-2">
+                        <i class="fas fa-user-check"></i>
+                        <span>Verified Profiles</span>
+                    </div>
+
+                    <div class="ci-floating-card card-3">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Career Growth</span>
+                    </div>
+
+                    <div class="ci-hero-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="ci-features-section section-space">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <div class="ci-section-pill mx-auto mb-3" data-aos="fade-up">
+                Features
+            </div>
+
+            <h2 class="ci-section-title" data-aos="fade-up" data-aos-delay="100">
+                Why Choose CareerInn
+            </h2>
+
+            <p class="ci-section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Powerful tools and modern experiences built to accelerate your professional journey.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ci-feature-card h-100" data-aos="fade-up">
+                    <div class="ci-feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <h4>Smart Job Discovery</h4>
+
+                    <p>
+                        Discover highly relevant job opportunities tailored to your skills and career goals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ci-feature-card h-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ci-feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+
+                    <h4>Top Companies</h4>
+
+                    <p>
+                        Connect with trusted companies and growing startups across multiple industries.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ci-feature-card h-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ci-feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+
+                    <h4>Secure Profiles</h4>
+
+                    <p>
+                        Maintain professional profiles with advanced privacy and verification systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ci-feature-card h-100" data-aos="fade-up">
+                    <div class="ci-feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+
+                    <h4>Real-Time Communication</h4>
+
+                    <p>
+                        Communicate seamlessly with recruiters and hiring teams in one platform.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ci-feature-card h-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ci-feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+
+                    <h4>Analytics Dashboard</h4>
+
+                    <p>
+                        Track applications, profile performance, and engagement with smart insights.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ci-feature-card h-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ci-feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+
+                    <h4>Career Growth</h4>
+
+                    <p>
+                        Learn, improve, and grow with resources designed for long-term career success.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ci-mission-section section-space">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+                <div class="ci-mission-card" data-aos="fade-right">
+                    <div class="ci-card-badge">
+                        Mission
+                    </div>
+
+                    <h3>Our Mission</h3>
+
+                    <p>
+                        To simplify hiring and career growth by creating a trusted platform where opportunities, talent, and innovation come together seamlessly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="ci-mission-card vision-card" data-aos="fade-left">
+                    <div class="ci-card-badge">
+                        Vision
+                    </div>
+
+                    <h3>Our Vision</h3>
+
+                    <p>
+                        To become a globally trusted digital career ecosystem that transforms how professionals discover opportunities and companies hire talent.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ci-workflow-section section-space">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <div class="ci-section-pill mx-auto mb-3" data-aos="fade-up">
+                Workflow
+            </div>
+
+            <h2 class="ci-section-title" data-aos="fade-up" data-aos-delay="100">
+                How CareerInn Works
+            </h2>
+        </div>
+
+        <div class="ci-workflow-wrapper">
+
+            <div class="ci-workflow-line"></div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="ci-step-card" data-aos="fade-up">
+                        <div class="ci-step-number">01</div>
+
+                        <div class="ci-step-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+
+                        <h5>Create Account</h5>
+
+                        <p>
+                            Build your professional profile and showcase your expertise.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="ci-step-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="ci-step-number">02</div>
+
+                        <div class="ci-step-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+
+                        <h5>Complete Profile</h5>
+
+                        <p>
+                            Add skills, education, achievements, and career preferences.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="ci-step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="ci-step-number">03</div>
+
+                        <div class="ci-step-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+
+                        <h5>Apply for Jobs</h5>
+
+                        <p>
+                            Explore opportunities and apply directly to companies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="ci-step-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="ci-step-number">04</div>
+
+                        <div class="ci-step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+
+                        <h5>Grow Your Career</h5>
+
+                        <p>
+                            Get hired faster and unlock long-term professional growth.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ci-team-section section-space">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <div class="ci-section-pill mx-auto mb-3" data-aos="fade-up">
+                Team
+            </div>
+
+            <h2 class="ci-section-title" data-aos="fade-up" data-aos-delay="100">
+                Meet Our Team
+            </h2>
+
+            <p class="ci-section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Passionate individuals building the future of digital careers.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="ci-team-card" data-aos="zoom-in">
+                    <div class="ci-team-avatar">
+                        AM
+                    </div>
+
+                    <h5>Aqsa Mushtaq</h5>
+
+                    <span>Frontend Developer</span>
+
+                    <p>
+                        Focused on crafting immersive and user-friendly web experiences.
+                    </p>
+
+                    <div class="ci-social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="ci-team-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="ci-team-avatar">
+                        IK
+                    </div>
+
+                    <h5>Ibrahim Khan</h5>
+
+                    <span>UI/UX Designer</span>
+
+                    <p>
+                        Designing modern digital interfaces with clean visual systems.
+                    </p>
+
+                    <div class="ci-social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="ci-team-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="ci-team-avatar">
+                        SA
+                    </div>
+
+                    <h5>Sarah Ali</h5>
+
+                    <span>Backend Engineer</span>
+
+                    <p>
+                        Building scalable and secure backend systems for CareerInn.
+                    </p>
+
+                    <div class="ci-social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-stack-overflow"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="ci-team-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="ci-team-avatar">
+                        ZH
+                    </div>
+
+                    <h5>Zain Haider</h5>
+
+                    <span>Project Manager</span>
+
+                    <p>
+                        Managing strategy, execution, and continuous platform innovation.
+                    </p>
+
+                    <div class="ci-social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ci-final-cta">
+    <div class="container">
+        <div class="ci-cta-box text-center" data-aos="zoom-in">
+            <h2>
+                Ready To Build Your Future With CareerInn?
+            </h2>
+
+            <p>
+                Join thousands of professionals and companies building meaningful career connections.
+            </p>
+
+            <a href="/Account/Register" class="btn ci-btn-primary">
+                Get Started Today
+            </a>
+        </div>
+    </div>
+</section>
+
+
+}
+@section Scripts {
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/js/about.js" asp-append-version="true"></script>
+}
+
+</script>

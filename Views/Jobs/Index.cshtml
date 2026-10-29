@@ -1,0 +1,349 @@
+﻿
+
+@* Hidden JSON data - JS will read this *@
+@model IEnumerable<CareerInn.Models.Job>
+@{
+    ViewData["Title"] = "Jobs";
+}
+
+<script id="jobsData" type="application/json">
+[
+    @{
+        var jobList = Model.ToList();
+        for (int i = 0; i < jobList.Count; i++)
+        {
+            var job = jobList[i];
+            var comma = i < jobList.Count - 1 ? "," : "";
+            @Html.Raw($@"{{
+                ""id"": {job.Id},
+                ""title"": ""{job.Title}"",
+                ""company"": ""{job.Company.Name}"",
+                ""location"": ""{job.Location}"",
+                ""jobType"": ""{job.JobType}"",
+                ""salary"": {(job.Salary.HasValue ? job.Salary.Value.ToString() : "0")},
+                ""experienceLevel"": ""{job.ExperienceLevel}"",
+                ""postedAt"": ""{job.PostedAt.ToString("MMM dd, yyyy")}""
+            }}{comma}")
+        }
+    }
+]
+</script>
+
+<input type="hidden" id="serverSearch" value="@ViewBag.Search" />
+<input type="hidden" id="serverLocation" value="@ViewBag.Location" />
+<input type="hidden" id="serverJobType" value="@ViewBag.JobType" />
+<input type="hidden" id="serverExperience" value="@ViewBag.Experience" />
+<input type="hidden" id="serverTotalJobs" value="@ViewBag.TotalJobs" />
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/jobs.css" asp-append-version="true" />
+}
+
+<!-- ═══════════════════════════════════════════
+     1. HERO SECTION
+═══════════════════════════════════════════ -->
+<section class="jobs-hero">
+    <div class="jobs-hero__orb jobs-hero__orb--1"></div>
+    <div class="jobs-hero__orb jobs-hero__orb--2"></div>
+    <div class="jobs-hero__orb jobs-hero__orb--3"></div>
+    <div class="jobs-hero__grid"></div>
+
+    <div class="container position-relative" style="z-index:2;">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-9">
+                <div class="jobs-hero__eyebrow" data-anim data-delay="0">
+                    <span class="jobs-eyebrow-dot"></span>
+                    50,000+ Opportunities Waiting
+                </div>
+                <h1 class="jobs-hero__title" data-anim data-delay="100">
+                    Find Your <span class="jobs-hero__highlight">Dream Career</span>
+                </h1>
+                <p class="jobs-hero__subtitle" data-anim data-delay="200">
+                    Explore curated job listings from top companies across every industry.
+                    Your next opportunity is one search away.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="jobs-search-bar" data-anim data-delay="300">
+                    <div class="jobs-search__field jobs-search__field--title">
+                        <i class="fa-solid fa-magnifying-glass jobs-search__icon"></i>
+                        <input type="text" id="searchTitle" class="jobs-search__input" placeholder="Job title, keywords..." autocomplete="off" />
+                        <div class="jobs-search__suggest" id="searchSuggest"></div>
+                    </div>
+                    <div class="jobs-search__divider"></div>
+                    <div class="jobs-search__field jobs-search__field--location">
+                        <i class="fa-solid fa-location-dot jobs-search__icon"></i>
+                        <input type="text" id="searchLocation" class="jobs-search__input" placeholder="City, remote..." autocomplete="off" />
+                    </div>
+                    <button class="jobs-search__btn" id="searchBtn" type="button">
+                        <i class="fa-solid fa-magnifying-glass me-2"></i>Search Jobs
+                    </button>
+                </div>
+
+                <!-- Popular tags -->
+                <div class="jobs-hero__tags" data-anim data-delay="400">
+                    <span class="jobs-hero__tags-label">Popular:</span>
+                    <button class="jobs-tag-pill" data-filter-tag="React">React</button>
+                    <button class="jobs-tag-pill" data-filter-tag="Python">Python</button>
+                    <button class="jobs-tag-pill" data-filter-tag="UI/UX">UI/UX</button>
+                    <button class="jobs-tag-pill" data-filter-tag="Data Science">Data Science</button>
+                    <button class="jobs-tag-pill" data-filter-tag="Cloud">Cloud</button>
+                    <button class="jobs-tag-pill" data-filter-tag="Remote">Remote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jobs-hero__wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fffbeb" />
+        </svg>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     2. STATS SECTION
+═══════════════════════════════════════════ -->
+<section class="jobs-stats">
+    <div class="container">
+        <div class="jobs-stats__grid">
+            <div class="jobs-stat-card" data-anim data-delay="0">
+                <div class="jobs-stat-card__icon jobs-stat-card__icon--teal">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="jobs-stat-card__body">
+                    <span class="jobs-stat-card__num" data-count="50000">0</span><span class="jobs-stat-card__suf">+</span>
+                    <span class="jobs-stat-card__label">Active Jobs</span>
+                </div>
+            </div>
+            <div class="jobs-stat-card" data-anim data-delay="80">
+                <div class="jobs-stat-card__icon jobs-stat-card__icon--amber">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div class="jobs-stat-card__body">
+                    <span class="jobs-stat-card__num" data-count="12000">0</span><span class="jobs-stat-card__suf">+</span>
+                    <span class="jobs-stat-card__label">Companies</span>
+                </div>
+            </div>
+            <div class="jobs-stat-card" data-anim data-delay="160">
+                <div class="jobs-stat-card__icon jobs-stat-card__icon--green">
+                    <i class="fa-solid fa-house-laptop"></i>
+                </div>
+                <div class="jobs-stat-card__body">
+                    <span class="jobs-stat-card__num" data-count="18000">0</span><span class="jobs-stat-card__suf">+</span>
+                    <span class="jobs-stat-card__label">Remote Roles</span>
+                </div>
+            </div>
+            <div class="jobs-stat-card" data-anim data-delay="240">
+                <div class="jobs-stat-card__icon jobs-stat-card__icon--violet">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="jobs-stat-card__body">
+                    <span class="jobs-stat-card__num" data-count="200000">0</span><span class="jobs-stat-card__suf">+</span>
+                    <span class="jobs-stat-card__label">Applicants</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     3. MAIN JOB BOARD
+═══════════════════════════════════════════ -->
+<section class="jobs-board" id="jobsBoard">
+    <div class="container">
+        <div class="jobs-board__layout">
+
+            <!-- ── LEFT SIDEBAR ── -->
+            <aside class="jobs-sidebar" id="jobsSidebar">
+                <div class="jobs-sidebar__header">
+                    <h6 class="jobs-sidebar__title">
+                        <i class="fa-solid fa-sliders me-2"></i>Filters
+                    </h6>
+                    <button class="jobs-sidebar__reset" id="resetFilters" type="button">Reset All</button>
+                </div>
+
+                <!-- Job Type -->
+                <div class="jobs-filter-group">
+                    <div class="jobs-filter-group__label">Job Type</div>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Full-time" class="filter-type"> <span>Full-time</span> <em>342</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Part-time" class="filter-type"> <span>Part-time</span> <em>128</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Internship" class="filter-type"> <span>Internship</span> <em>89</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Contract" class="filter-type"> <span>Contract</span> <em>76</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Remote" class="filter-type"> <span>Remote</span> <em>210</em></label>
+                </div>
+
+                <!-- Experience Level -->
+                <div class="jobs-filter-group">
+                    <div class="jobs-filter-group__label">Experience Level</div>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Entry Level" class="filter-exp"> <span>Entry Level</span> <em>198</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Mid Level" class="filter-exp"> <span>Mid Level</span> <em>274</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Senior" class="filter-exp"> <span>Senior</span> <em>153</em></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Lead" class="filter-exp"> <span>Lead / Manager</span> <em>62</em></label>
+                </div>
+
+                <!-- Location -->
+                <div class="jobs-filter-group">
+                    <div class="jobs-filter-group__label">Location</div>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Lahore" class="filter-loc"> <span>Lahore</span></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Karachi" class="filter-loc"> <span>Karachi</span></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Islamabad" class="filter-loc"> <span>Islamabad</span></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="Remote" class="filter-loc"> <span>Remote</span></label>
+                    <label class="jobs-checkbox"><input type="checkbox" value="International" class="filter-loc"> <span>International</span></label>
+                </div>
+
+                <!-- Salary Range -->
+                <div class="jobs-filter-group">
+                    <div class="jobs-filter-group__label">Salary Range (PKR / mo)</div>
+                    <div class="jobs-salary-range">
+                        <div class="jobs-salary-range__track">
+                            <div class="jobs-salary-range__fill" id="salaryFill"></div>
+                            <input type="range" min="0" max="500000" step="5000" value="500000" class="jobs-range-slider" id="salaryRange" />
+                        </div>
+                        <div class="jobs-salary-range__labels">
+                            <span>PKR 0</span>
+                            <span id="salaryVal">PKR 500,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Filter -->
+                <div class="jobs-filter-group">
+                    <div class="jobs-filter-group__label">Skills</div>
+                    <div class="jobs-skill-tags">
+                        <button class="jobs-skill-filter" data-skill="React">React</button>
+                        <button class="jobs-skill-filter" data-skill="Python">Python</button>
+                        <button class="jobs-skill-filter" data-skill="Node.js">Node.js</button>
+                        <button class="jobs-skill-filter" data-skill="UI/UX">UI/UX</button>
+                        <button class="jobs-skill-filter" data-skill="Data Science">Data Science</button>
+                        <button class="jobs-skill-filter" data-skill="Cloud">Cloud</button>
+                        <button class="jobs-skill-filter" data-skill="DevOps">DevOps</button>
+                        <button class="jobs-skill-filter" data-skill="Figma">Figma</button>
+                        <button class="jobs-skill-filter" data-skill="SQL">SQL</button>
+                        <button class="jobs-skill-filter" data-skill=".NET">.NET</button>
+                    </div>
+                </div>
+
+                <!-- Mobile close -->
+                <button class="jobs-sidebar__close" id="sidebarClose" type="button">
+                    <i class="fa-solid fa-xmark me-2"></i>Apply Filters
+                </button>
+            </aside>
+
+            <!-- ── JOB FEED ── -->
+            <div class="jobs-feed">
+
+                <!-- Feed header -->
+                <div class="jobs-feed__header">
+                    <div class="jobs-feed__meta">
+                        <span class="jobs-feed__count" id="jobCount">Loading jobs...</span>
+                        <span class="jobs-feed__active-filters" id="activeFiltersBar"></span>
+                    </div>
+                    <div class="jobs-feed__controls">
+                        <button class="jobs-filter-toggle" id="filterToggle" type="button">
+                            <i class="fa-solid fa-sliders me-2"></i>Filters
+                        </button>
+                        <select class="jobs-sort-select" id="sortSelect">
+                            <option value="recent">Most Recent</option>
+                            <option value="salary">Highest Salary</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Skeleton loaders (shown before cards load) -->
+                <div class="jobs-skeleton-wrap" id="skeletonWrap">
+                    <div class="jobs-skeleton-card"></div>
+                    <div class="jobs-skeleton-card"></div>
+                    <div class="jobs-skeleton-card"></div>
+                    <div class="jobs-skeleton-card"></div>
+                </div>
+
+                <!-- Job cards container -->
+                <div class="jobs-card-grid" id="jobCardGrid" style="display:none;"></div>
+
+                <!-- Empty state -->
+                <div class="jobs-empty" id="jobsEmpty" style="display:none;">
+                    <div class="jobs-empty__icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h5 class="jobs-empty__title">No Jobs Found</h5>
+                    <p class="jobs-empty__desc">Try adjusting your filters or search terms to find more opportunities.</p>
+                    <button class="ci-btn-primary" id="clearAllFilters" type="button">Clear All Filters</button>
+                </div>
+
+                <!-- Load More -->
+                <div class="jobs-loadmore" id="loadMoreWrap" style="display:none;">
+                    <button class="jobs-loadmore__btn" id="loadMoreBtn" type="button">
+                        <i class="fa-solid fa-arrow-down me-2"></i>Load More Jobs
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     4. FEATURED JOBS CAROUSEL
+═══════════════════════════════════════════ -->
+<section class="jobs-featured">
+    <div class="container">
+        <div class="jobs-featured__header" data-anim>
+            <div>
+                <span class="jobs-section-tag">Premium Listings</span>
+                <h2 class="jobs-section-title">Featured <span>Opportunities</span></h2>
+            </div>
+            <div class="jobs-featured__controls">
+                <button class="jobs-carousel-btn" id="carouselPrev" type="button" aria-label="Previous">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="jobs-carousel-btn" id="carouselNext" type="button" aria-label="Next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="jobs-carousel-wrap">
+            <div class="jobs-carousel" id="featuredCarousel">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     5. CTA — JOB ALERTS
+═══════════════════════════════════════════ -->
+<section class="jobs-cta">
+    <div class="jobs-cta__orb jobs-cta__orb--1"></div>
+    <div class="jobs-cta__orb jobs-cta__orb--2"></div>
+    <div class="container position-relative" style="z-index:2;">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center">
+                <div data-anim>
+                    <span class="jobs-section-tag jobs-section-tag--light">Never Miss a Role</span>
+                    <h2 class="jobs-cta__title">Get Personalised <span>Job Alerts</span></h2>
+                    <p class="jobs-cta__sub">Subscribe and receive hand-picked job matches directly in your inbox every morning.</p>
+                    <div class="jobs-cta__form" id="alertForm">
+                        <div class="jobs-cta__input-wrap">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="alertEmail" class="jobs-cta__email-input" placeholder="Enter your email address..." />
+                        </div>
+                        <button class="jobs-cta__submit" id="alertSubmit" type="button">
+                            Get Alerts <i class="fa-solid fa-bell ms-2"></i>
+                        </button>
+                    </div>
+                    <p class="jobs-cta__note" id="alertNote" style="display:none;"></p>
+                    <p class="jobs-cta__disclaimer">No spam. Unsubscribe anytime. 100% free.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/jobs.js" asp-append-version="true"></script>
+}
+

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Register</h1>
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/register.css" />
+
+<section class="register-page">
+
+    <div class="register-container">
+
+        <!-- LEFT SIDE -->
+        <div class="register-left">
+
+            <div class="brand">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>CareerInn</span>
+            </div>
+
+            <h1>Create Your Account</h1>
+
+            <p>
+                Join CareerInn and discover opportunities
+                that shape your future career journey.
+            </p>
+
+            <div class="features">
+                <div class="feature-box">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>Student Friendly</span>
+                </div>
+
+                <div class="feature-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Top Jobs & Internships</span>
+                </div>
+
+                <div class="feature-box">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Career Growth</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="register-right">
+
+            <div class="form-card">
+
+                <h2>Register Now</h2>
+
+                <form id="registerForm">
+
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your full name" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter your email" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+
+                        <div class="password-box">
+                            <input type="password" id="password" placeholder="Create password" required />
+                            <i class="fa-solid fa-eye" id="togglePassword"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Confirm password" required />
+                    </div>
+
+                    <button type="submit" class="register-btn">
+                        Create Account
+                    </button>
+
+                </form>
+
+                <div class="bottom-text">
+                    Already have an account?
+                    <a href="#">Login</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="~/js/register.js"></script>
+

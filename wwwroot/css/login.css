@@ -1,0 +1,354 @@
+﻿body {
+}
+:root {
+    --ci-teal: #0d9488;
+    --ci-teal-dark: #0f766e;
+    --ci-amber: #d97706;
+    --ci-amber-light: #fbbf24;
+    --ci-bg: #fffbeb;
+    --ci-dark: #1c1917;
+    --ci-dark-2: #292524;
+    --ci-text: #334155;
+    --ci-muted: #64748b;
+}
+
+body {
+    background: linear-gradient(135deg, #1c1917 0%, #134e4a 50%, #0d9488 100%);
+    overflow-x: hidden;
+}
+
+.ci-login-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+/* GLOW EFFECTS */
+
+.ci-login-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 0;
+}
+
+.ci-glow-1 {
+    width: 350px;
+    height: 350px;
+    background: rgba(217, 119, 6, 0.18);
+    top: -100px;
+    right: -100px;
+}
+
+.ci-glow-2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(13, 148, 136, 0.25);
+    bottom: -120px;
+    left: -100px;
+}
+
+.ci-glow-3 {
+    width: 250px;
+    height: 250px;
+    background: rgba(20, 184, 166, 0.15);
+    top: 45%;
+    left: 45%;
+}
+
+/* LEFT CONTENT */
+
+.ci-login-content {
+    position: relative;
+    z-index: 2;
+}
+
+.ci-section-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    color: white;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.ci-login-title {
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.ci-login-subtitle {
+    color: rgba(255,255,255,0.78);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+/* FEATURE LIST */
+
+.ci-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.ci-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1.2rem;
+    border-radius: 22px;
+    backdrop-filter: blur(16px);
+    transition: 0.4s ease;
+}
+
+    .ci-feature-item:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255,255,255,0.16);
+    }
+
+.ci-feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #0d9488, #d97706);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.ci-feature-item h5 {
+    color: white;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.ci-feature-item p {
+    color: rgba(255,255,255,0.72);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* STATS */
+
+.ci-mini-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.ci-stat-card {
+    min-width: 130px;
+    padding: 1.3rem;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    text-align: center;
+}
+
+    .ci-stat-card h3 {
+        color: white;
+        font-weight: 800;
+        margin-bottom: 0.2rem;
+    }
+
+    .ci-stat-card span {
+        color: rgba(255,255,255,0.70);
+    }
+
+/* LOGIN CARD */
+
+.ci-login-card {
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+    border-radius: 32px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(22px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+}
+
+.ci-form-header {
+    margin-bottom: 2rem;
+}
+
+    .ci-form-header h2 {
+        color: white;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .ci-form-header p {
+        color: rgba(255,255,255,0.72);
+    }
+
+.form-label {
+    color: white;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.ci-input-group {
+    position: relative;
+}
+
+    .ci-input-group i {
+        position: absolute;
+        top: 50%;
+        left: 18px;
+        transform: translateY(-50%);
+        color: rgba(255,255,255,0.60);
+    }
+
+.ci-input {
+    height: 58px;
+    padding-left: 50px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+    .ci-input:focus {
+        border-color: var(--ci-amber-light);
+        box-shadow: 0 0 0 4px rgba(251,191,36,0.12);
+        background: rgba(255,255,255,0.10);
+        color: white;
+    }
+
+    .ci-input::placeholder {
+        color: rgba(255,255,255,0.45);
+    }
+
+.form-check-label {
+    color: rgba(255,255,255,0.72);
+}
+
+.ci-forgot-link {
+    color: #fbbf24;
+    text-decoration: none;
+}
+
+    .ci-forgot-link:hover {
+        color: white;
+    }
+
+.ci-login-btn {
+    height: 58px;
+    border: none;
+    border-radius: 16px;
+    background: var(--ci-teal);
+    color: white;
+    font-weight: 700;
+    transition: 0.4s ease;
+}
+
+    .ci-login-btn:hover {
+        background: var(--ci-teal-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(13,148,136,0.35);
+        color: white;
+    }
+
+.ci-divider {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+    .ci-divider::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: rgba(255,255,255,0.10);
+        left: 0;
+        top: 50%;
+    }
+
+    .ci-divider span {
+        position: relative;
+        background: rgba(19,78,74,0.90);
+        color: rgba(255,255,255,0.65);
+        padding: 0 1rem;
+    }
+
+.ci-social-btn {
+    width: 100%;
+    height: 56px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    transition: 0.4s ease;
+}
+
+    .ci-social-btn:hover {
+        background: rgba(255,255,255,0.12);
+        color: white;
+    }
+
+    .ci-social-btn i {
+        margin-right: 0.7rem;
+    }
+
+.ci-register-link {
+    color: rgba(255,255,255,0.75);
+}
+
+    .ci-register-link a {
+        color: #fbbf24;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .ci-register-link a:hover {
+            color: white;
+        }
+
+@media (max-width: 991px) {
+
+    .ci-login-page {
+        padding: 80px 0;
+    }
+
+    .ci-login-content {
+        text-align: center;
+    }
+
+    .ci-mini-stats {
+        justify-content: center;
+    }
+
+    .ci-login-subtitle {
+        margin: auto;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .ci-login-card {
+        padding: 2rem;
+    }
+
+    .ci-login-title {
+        font-size: 2.4rem;
+    }
+
+    .ci-feature-item {
+        flex-direction: column;
+    }
+}

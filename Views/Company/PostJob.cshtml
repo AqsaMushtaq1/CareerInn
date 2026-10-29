@@ -1,0 +1,145 @@
+﻿@model CareerInn.Models.Job
+
+@{
+    ViewData["Title"] = "Post a Job";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+}
+
+<section class="register-page">
+    <div class="register-mesh"></div>
+    <div class="register-container">
+
+        <!-- LEFT -->
+        <div class="register-left">
+            <div class="brand">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>CareerInn</span>
+            </div>
+            <span class="section-tag">For Employers</span>
+            <h1>Post a Job & Find the Best Talent</h1>
+            <p>Fill in the details below to post your job listing to thousands of qualified candidates.</p>
+
+            <div class="features">
+                <div class="feature-box">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <div>
+                        <h5>Targeted Reach</h5>
+                        <span>Reach the right candidates fast</span>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h5>Quick Posting</h5>
+                        <span>Go live in minutes</span>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <div>
+                        <h5>Track Applications</h5>
+                        <span>Manage all applicants easily</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="register-right">
+            <div class="form-card glass-card">
+
+                <span class="section-tag">Job Details</span>
+                <h2>Post a New Job</h2>
+
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                }
+
+                <form asp-action="PostJob" asp-controller="Company" method="post">
+                    @if (ViewData.ModelState.ContainsKey("") && ViewData.ModelState[""].Errors.Count > 0)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewData.ModelState[""].Errors[0].ErrorMessage
+                        </div>
+                    }
+
+                    <div class="input-group">
+                        <label>Job Title <span style="color:red">*</span></label>
+                        <input asp-for="Title" type="text" placeholder="e.g. Senior .NET Developer" />
+                        <span asp-validation-for="Title" class="text-danger" style="font-size:0.8rem;"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Job Description <span style="color:red">*</span></label>
+                        <textarea asp-for="Description" rows="4"
+                                  placeholder="Describe the role and responsibilities"></textarea>
+                        <span asp-validation-for="Description" class="text-danger" style="font-size:0.8rem;"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Requirements</label>
+                        <textarea asp-for="Requirements" rows="3"
+                                  placeholder="List the required skills and experience"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Location</label>
+                        <input asp-for="Location" type="text" placeholder="e.g. Lahore, Remote" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Job Type</label>
+                        <select asp-for="JobType" class="form-select">
+                            <option value="">Select job type</option>
+                            <option value="Full-Time">Full-Time</option>
+                            <option value="Part-Time">Part-Time</option>
+                            <option value="Remote">Remote</option>
+                            <option value="Contract">Contract</option>
+                            <option value="Internship">Internship</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Experience Level</label>
+                        <select asp-for="ExperienceLevel" class="form-select">
+                            <option value="">Select level</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Mid">Mid</option>
+                            <option value="Senior">Senior</option>
+                            <option value="Lead">Lead</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Salary (PKR / month) — optional</label>
+                        <input asp-for="Salary" type="number" placeholder="e.g. 80000" min="0" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Application Deadline — optional</label>
+                        <input asp-for="ApplicationDeadline" type="date" />
+                    </div>
+
+                    <button class="register-btn" type="submit">
+                        Post Job <i class="fas fa-paper-plane ms-2"></i>
+                    </button>
+
+                </form>
+                <div class="bottom-text">
+                    <a asp-controller="Company" asp-action="Dashboard">
+                        Back to Dashboard
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

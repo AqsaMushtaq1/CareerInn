@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CareerInn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light ci-navbar fixed-top" id="mainNavbar">
+    <div class="container">
+
+        <!-- LOGO -->
+        <a class="navbar-brand ci-brand"
+           asp-controller="Home"
+           asp-action="Index">
+            <span class="brand-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </span>
+            <span class="brand-text">CareerInn</span>
+        </a>
+
+        <!-- TOGGLER -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <!-- NAV LINKS -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-1 align-items-center">
+
+                    <!-- HOME -->
+                    <li class="nav-item">
+                        <a class="nav-link ci-nav-link" asp-controller="Home" asp-action="Index">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- JOBS -->
+                    <li class="nav-item">
+                        <a class="nav-link ci-nav-link" asp-controller="Jobs" asp-action="Index">
+                            Jobs
+                        </a>
+                    </li>
+
+                    <!-- ABOUT -->
+                    <li class="nav-item">
+                        <a class="nav-link ci-nav-link" asp-controller="About" asp-action="Index">
+                            About Us
+                        </a>
+                    </li>
+
+                    <!-- CONTACT -->
+                    <li class="nav-item">
+                        <a class="nav-link ci-nav-link" asp-controller="Contact" asp-action="Index">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    @if (Context.Session.GetString("UserName") != null)
+                    {
+                        <!-- DASHBOARD based on role -->
+                        @if (Context.Session.GetString("UserRole") == "Admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link ci-nav-link" asp-controller="Dashboard" asp-action="Index">
+                                    Admin Panel
+                                </a>
+                            </li>
+                        }
+                        else if (Context.Session.GetString("UserRole") == "Employer")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link ci-nav-link" asp-controller="Company" asp-action="Dashboard">
+                                    Company Dashboard
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link ci-nav-link" asp-controller="Dashboard" asp-action="Index">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link ci-nav-link" asp-controller="Company" asp-action="Register">
+                                    For Employers
+                                </a>
+                            </li>
+                        }
+
+                        <!-- USER NAME + LOGOUT -->
+                        <li class="nav-item">
+                            <a class="nav-link ci-nav-link" asp-controller="Account" asp-action="Logout"
+                                   style="background:rgba(13,148,136,0.1);border-radius:8px;padding:6px 14px;">
+                                <i class="fas fa-user me-1"></i>
+                                @Context.Session.GetString("UserName")
+                                &nbsp;|&nbsp; Logout
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- NOT LOGGED IN -->
+                        <li class="nav-item">
+                            <a class="nav-link ci-nav-link" asp-controller="Account" asp-action="Register">
+                                Register
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ci-nav-link"
+                                   asp-controller="Account" asp-action="Login"
+                                   style="background:var(--ci-primary);color:#fff;border-radius:8px;padding:6px 18px;">
+                                Login
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+    <!-- PAGE CONTENT -->
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ci-footer">
+        <div class="container">
+            <div class="footer-brand mb-3">
+                <span class="brand-icon"><i class="fa-solid fa-briefcase"></i></span>
+                <span class="brand-text">CareerInn</span>
+            </div>
+            <div class="footer-links mb-4">
+                <a href="#" class="footer-link">Blogs</a>
+                <span class="footer-divider">|</span>
+                <a href="#" class="footer-link">FAQs</a>
+                <span class="footer-divider">|</span>
+                <a href="#" class="footer-link">Terms and Conditions</a>
+            </div>
+            <div class="footer-socials mb-4">
+                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="footer-copy">© 2026 CareerInn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

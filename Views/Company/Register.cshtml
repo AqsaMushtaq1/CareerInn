@@ -1,0 +1,108 @@
+﻿@model CareerInn.Models.Company
+
+@{
+    ViewData["Title"] = "Register Company";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+}
+
+<section class="register-page">
+    <div class="register-mesh"></div>
+    <div class="register-container">
+
+        <!-- LEFT -->
+        <div class="register-left">
+            <div class="brand">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>CareerInn</span>
+            </div>
+            <span class="section-tag">For Employers</span>
+            <h1>Post Jobs & Find the Best Talent</h1>
+            <p>Register your company and start posting jobs to thousands of qualified candidates.</p>
+
+            <div class="features">
+                <div class="feature-box">
+                    <i class="fa-solid fa-building"></i>
+                    <div>
+                        <h5>Company Profile</h5>
+                        <span>Create a professional company page</span>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <div>
+                        <h5>Post Jobs</h5>
+                        <span>Reach thousands of candidates</span>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <h5>Manage Applications</h5>
+                        <span>Review and respond to applicants</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="register-right">
+            <div class="form-card glass-card">
+
+                <span class="section-tag">Company Details</span>
+                <h2>Register Your Company</h2>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        @Html.ValidationSummary(false)
+                    </div>
+                }
+
+                <form asp-action="Register" asp-controller="Company"
+                      method="post" enctype="multipart/form-data">
+
+                    <div class="input-group">
+                        <label>Company Name</label>
+                        <input asp-for="Name" type="text" placeholder="Enter company name" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Description</label>
+                        <textarea asp-for="Description" rows="3"
+                                  placeholder="Tell candidates about your company"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Location</label>
+                        <input asp-for="Location" type="text" placeholder="e.g. Lahore, Pakistan" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Website</label>
+                        <input asp-for="Website" type="url" placeholder="https://yourcompany.com" />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Company Logo (optional)</label>
+                        <input type="file" name="logoFile" accept="image/*" />
+                    </div>
+
+                    <button class="register-btn" type="submit">
+                        Register Company
+                    </button>
+
+                </form>
+
+                <div class="bottom-text">
+                    Already registered?
+                    <a asp-controller="Company" asp-action="Dashboard">Go to Dashboard</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

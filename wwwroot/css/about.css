@@ -1,0 +1,451 @@
+﻿:root {
+    --ci-teal: #0d9488;
+    --ci-teal-dark: #0f766e;
+    --ci-amber: #d97706;
+    --ci-amber-light: #fbbf24;
+    --ci-bg: #fffbeb;
+    --ci-dark: #1c1917;
+    --ci-dark-2: #292524;
+    --ci-text: #334155;
+    --ci-muted: #64748b;
+}
+
+body {
+    background: var(--ci-bg);
+}
+
+.section-space {
+    padding: 110px 0;
+}
+
+.ci-about-hero {
+    position: relative;
+    background: linear-gradient(135deg, #1c1917 0%, #134e4a 50%, #0d9488 100%);
+    color: white;
+}
+
+.ci-hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 0;
+}
+
+.ci-glow-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(217, 119, 6, 0.18);
+    top: -100px;
+    right: -100px;
+}
+
+.ci-glow-2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(13, 148, 136, 0.30);
+    bottom: -120px;
+    left: -100px;
+}
+
+.ci-glow-3 {
+    width: 250px;
+    height: 250px;
+    background: rgba(20, 184, 166, 0.15);
+    top: 40%;
+    left: 45%;
+}
+
+.ci-about-title {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.ci-about-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.82);
+    max-width: 650px;
+}
+
+.ci-section-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    background: rgba(13, 148, 136, 0.10);
+    color: var(--ci-teal);
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+}
+
+    .ci-section-pill:hover {
+        box-shadow: 0 0 25px rgba(13, 148, 136, 0.35);
+    }
+
+.ci-btn-primary {
+    background: var(--ci-teal);
+    color: white;
+    border-radius: 14px;
+    padding: 0.95rem 1.8rem;
+    border: none;
+    font-weight: 600;
+    transition: all 0.35s ease;
+}
+
+    .ci-btn-primary:hover {
+        background: var(--ci-teal-dark);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(13, 148, 136, 0.35);
+    }
+
+.ci-btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    border-radius: 14px;
+    padding: 0.95rem 1.8rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+}
+
+    .ci-btn-outline:hover {
+        background: rgba(255,255,255,0.12);
+        color: white;
+    }
+
+.ci-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.ci-stat-card {
+    min-width: 150px;
+    padding: 1.3rem;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+    .ci-stat-card h3 {
+        font-weight: 800;
+        margin-bottom: 0.3rem;
+    }
+
+    .ci-stat-card p {
+        margin: 0;
+        color: rgba(255,255,255,0.75);
+    }
+
+.ci-hero-visual {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main glowing orb */
+.ci-hero-circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.25), rgba(255,255,255,0.05)), linear-gradient(135deg, #0d9488, #d97706);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 80px rgba(13, 148, 136, 0.35), 0 0 120px rgba(217, 119, 6, 0.18);
+    border: 1px solid rgba(255,255,255,0.12);
+    z-index: 1;
+    animation: floatCircle 6s ease-in-out infinite;
+}
+
+/* Floating cards */
+.ci-floating-card {
+    position: absolute;
+    padding: 1rem 1.3rem;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(18px);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.18);
+    z-index: 3;
+    animation: floatCard 5s ease-in-out infinite;
+}
+
+    .ci-floating-card i {
+        color: #fbbf24;
+        font-size: 1.1rem;
+    }
+
+/* Better positioning */
+.card-1 {
+    top: 70px;
+    left: 20px;
+}
+
+.card-2 {
+    top: 120px;
+    right: 10px;
+}
+
+.card-3 {
+    bottom: 70px;
+    left: 60px;
+}
+@keyframes floatCircle {
+    0%,100% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-18px);
+    }
+}
+
+@keyframes floatCard {
+    0%,100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.ci-section-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--ci-dark);
+}
+
+.ci-section-subtitle {
+    max-width: 700px;
+    margin: auto;
+    color: var(--ci-muted);
+    line-height: 1.8;
+}
+
+.ci-feature-card,
+.ci-mission-card,
+.ci-step-card,
+.ci-team-card {
+    background: white;
+    border-radius: 28px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 15px 40px rgba(28,25,23,0.10);
+    position: relative;
+    overflow: hidden;
+}
+
+    .ci-feature-card:hover,
+    .ci-mission-card:hover,
+    .ci-step-card:hover,
+    .ci-team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(28,25,23,0.18);
+    }
+
+.ci-feature-icon,
+.ci-step-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #0d9488, #d97706);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ci-feature-card h4,
+.ci-step-card h5,
+.ci-team-card h5,
+.ci-mission-card h3 {
+    color: var(--ci-dark);
+    font-weight: 700;
+}
+
+.ci-feature-card p,
+.ci-step-card p,
+.ci-team-card p,
+.ci-mission-card p {
+    color: var(--ci-muted);
+    line-height: 1.8;
+}
+
+.ci-card-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: rgba(13, 148, 136, 0.10);
+    color: var(--ci-teal);
+    font-weight: 600;
+}
+
+.vision-card {
+    border: 1px solid rgba(217,119,6,0.25);
+}
+
+.ci-workflow-wrapper {
+    position: relative;
+}
+
+.ci-workflow-line {
+    position: absolute;
+    top: 65px;
+    left: 8%;
+    width: 84%;
+    height: 3px;
+    background: linear-gradient(to right, #0d9488, #d97706);
+}
+
+.ci-step-number {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: rgba(13,148,136,0.08);
+}
+
+.ci-team-section {
+    background: linear-gradient(to bottom, #f0fdfa, #fffbeb);
+}
+
+.ci-team-avatar {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0d9488, #d97706);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.ci-team-card span {
+    display: block;
+    color: var(--ci-amber);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.ci-social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.3rem;
+}
+
+    .ci-social-links a {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #f8fafc;
+        color: var(--ci-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.35s ease;
+    }
+
+        .ci-social-links a:hover {
+            background: var(--ci-teal);
+            color: white;
+            box-shadow: 0 0 20px rgba(13,148,136,0.40);
+        }
+
+.ci-final-cta {
+    padding: 110px 0;
+}
+
+.ci-cta-box {
+    padding: 5rem 2rem;
+    border-radius: 36px;
+    background: linear-gradient(135deg, #1c1917 0%, #134e4a 50%, #0d9488 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(28,25,23,0.18);
+}
+
+    .ci-cta-box::before {
+        content: '';
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background: rgba(217,119,6,0.15);
+        border-radius: 50%;
+        top: -120px;
+        right: -120px;
+        filter: blur(70px);
+    }
+
+    .ci-cta-box h2 {
+        color: white;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    .ci-cta-box p {
+        color: rgba(255,255,255,0.78);
+        max-width: 700px;
+        margin: auto auto 2rem;
+        line-height: 1.8;
+    }
+
+@media (max-width: 991px) {
+
+    .section-space {
+        padding: 80px 0;
+    }
+
+    .ci-workflow-line {
+        display: none;
+    }
+
+    .ci-about-title {
+        font-size: 3rem;
+    }
+
+    .ci-hero-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .ci-about-title {
+        font-size: 2.4rem;
+    }
+
+    .ci-feature-card,
+    .ci-mission-card,
+    .ci-step-card,
+    .ci-team-card {
+        padding: 1.7rem;
+    }
+
+    .ci-cta-box {
+        padding: 3rem 1.5rem;
+    }
+}

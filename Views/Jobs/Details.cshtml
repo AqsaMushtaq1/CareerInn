@@ -1,0 +1,140 @@
+﻿@model CareerInn.Models.Job
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/jobs.css" asp-append-version="true" />
+}
+
+<section class="job-detail-section">
+    <div class="container">
+        <div class="row">
+
+            <!-- LEFT — Job Info -->
+            <div class="col-lg-8">
+                <div class="job-detail-card">
+
+                    <!-- Header -->
+                    <div class="job-detail-header">
+                        <div class="job-detail-avatar">
+                            @Model.Company.Name.Substring(0, 2).ToUpper()
+                        </div>
+                        <div class="job-detail-header-info">
+                            <h1 class="job-detail-title">@Model.Title</h1>
+                            <p class="job-detail-company">
+                                <i class="fas fa-building me-2"></i>@Model.Company.Name
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Meta -->
+                    <div class="job-detail-meta">
+                        <span class="job-detail-meta-item">
+                            <i class="fas fa-map-marker-alt"></i> @Model.Location
+                        </span>
+                        <span class="job-detail-meta-item">
+                            <i class="fas fa-briefcase"></i> @Model.JobType
+                        </span>
+                        <span class="job-detail-meta-item">
+                            <i class="fas fa-chart-simple"></i> @Model.ExperienceLevel
+                        </span>
+                        <span class="job-detail-meta-item">
+                            <i class="fas fa-money-bill"></i>
+                            @(Model.Salary.HasValue ? "PKR " + Model.Salary.Value.ToString("N0") : "Not Disclosed")
+                        </span>
+                        <span class="job-detail-meta-item">
+                            <i class="fas fa-calendar"></i> @Model.PostedAt.ToString("MMM dd, yyyy")
+                        </span>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="job-detail-section-block">
+                        <h4>Job Description</h4>
+                        <p>@Model.Description</p>
+                    </div>
+
+                    <!-- Requirements -->
+                    @if (!string.IsNullOrEmpty(Model.Requirements))
+                    {
+                        <div class="job-detail-section-block">
+                            <h4>Requirements</h4>
+                            <p>@Model.Requirements</p>
+                        </div>
+                    }
+
+                    <!-- Deadline -->
+                    @if (Model.ApplicationDeadline.HasValue)
+                    {
+                        <div class="job-detail-section-block">
+                            <h4>Application Deadline</h4>
+                            <p>@Model.ApplicationDeadline.Value.ToString("MMM dd, yyyy")</p>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <!-- RIGHT — Apply Box -->
+            <div class="col-lg-4">
+                <div class="job-apply-card">
+                    <h4>Interested in this role?</h4>
+                    <p>Submit your application now and take the next step in your career.</p>
+
+                    <div class="job-apply-info">
+                        <div class="job-apply-info-item">
+                            <span class="label">Company</span>
+                            <span class="value">@Model.Company.Name</span>
+                        </div>
+                        <div class="job-apply-info-item">
+                            <span class="label">Location</span>
+                            <span class="value">@(Model.Location ?? "Not specified")</span>
+                        </div>
+                        <div class="job-apply-info-item">
+                            <span class="label">Job Type</span>
+                            <span class="value">@(Model.JobType ?? "Not specified")</span>
+                        </div>
+                        <div class="job-apply-info-item">
+                            <span class="label">Salary</span>
+                            <span class="value">
+                                @(Model.Salary.HasValue ? "PKR " + Model.Salary.Value.ToString("N0") : "Not Disclosed")
+                            </span>
+                        </div>
+                    </div>
+
+                    @if (Context.Session.GetInt32("UserId") != null)
+                    {
+                        if (ViewBag.AlreadyApplied == true)
+                        {
+                            <div class="alert alert-success text-center">
+                                ✅ You have already applied for this job.
+                            </div>
+                        }
+                        else
+                        {
+                            <a asp-controller="Jobs" asp-action="Apply" asp-route-id="@Model.Id" class="btn-apply-now">
+                                Apply Now <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn-apply-now">
+                            Login to Apply <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    }
+
+                    <a asp-controller="Jobs" asp-action="Index" class="btn-back-jobs">
+                        <i class="fas fa-arrow-left me-2"></i> Back to Jobs
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/jobs.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,192 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+}
+
+<div class="dash-root">
+
+    <div class="dash-ambient" aria-hidden="true">
+        <span class="ambient-blob blob-1"></span>
+        <span class="ambient-blob blob-2"></span>
+        <span class="ambient-blob blob-3"></span>
+    </div>
+
+    <!-- HERO -->
+    <header class="dash-hero reveal-item">
+        <div class="hero-left">
+            <div class="hero-avatar">
+                <span class="avatar-ring"></span>
+                <div class="avatar-fallback" style="display:flex">
+                    <span>A</span>
+                </div>
+                <span class="avatar-status-dot" title="Active"></span>
+            </div>
+            <div class="hero-text">
+                <p class="hero-greeting">Admin Panel ✦</p>
+                <h1 class="hero-name">Welcome, <em>@ViewBag.UserName</em></h1>
+                <p class="hero-sub">Manage users, jobs and applications from here.</p>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-quick-stats">
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.TotalUsers</span>
+                    <span class="qs-lbl">Users</span>
+                </div>
+                <div class="qs-divider"></div>
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.TotalJobs</span>
+                    <span class="qs-lbl">Jobs</span>
+                </div>
+                <div class="qs-divider"></div>
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.TotalApplications</span>
+                    <span class="qs-lbl">Applications</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- KPI CARDS -->
+    <section class="kpi-grid">
+
+        <div class="kpi-card reveal-item">
+            <div class="kpi-icon kpi-teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+            </div>
+            <div class="kpi-body">
+                <span class="kpi-label">Total Users</span>
+                <span class="kpi-value">@ViewBag.TotalUsers</span>
+                <span class="kpi-trend trend-up">Registered accounts</span>
+            </div>
+        </div>
+
+        <div class="kpi-card reveal-item">
+            <div class="kpi-icon kpi-amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M3 9h18M9 21V9" />
+                </svg>
+            </div>
+            <div class="kpi-body">
+                <span class="kpi-label">Total Companies</span>
+                <span class="kpi-value">@ViewBag.TotalCompanies</span>
+                <span class="kpi-trend trend-up">Registered companies</span>
+            </div>
+        </div>
+
+        <div class="kpi-card reveal-item">
+            <div class="kpi-icon kpi-teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                </svg>
+            </div>
+            <div class="kpi-body">
+                <span class="kpi-label">Total Jobs</span>
+                <span class="kpi-value">@ViewBag.TotalJobs</span>
+                <span class="kpi-trend trend-up">All job listings</span>
+            </div>
+        </div>
+
+        <div class="kpi-card reveal-item">
+            <div class="kpi-icon kpi-amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+            </div>
+            <div class="kpi-body">
+                <span class="kpi-label">Total Applications</span>
+                <span class="kpi-value">@ViewBag.TotalApplications</span>
+                <span class="kpi-trend trend-up">All applications</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- RECENT APPLICATIONS -->
+    <div class="dash-section reveal-item">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-dot teal-dot"></span>
+                Recent Applications
+            </h2>
+        </div>
+
+        @if (ViewBag.RecentApplications != null && ((List<CareerInn.Models.JobApplication>)ViewBag.RecentApplications).Count > 0)
+        {
+            <div class="applications-list">
+                @foreach (var app in (List<CareerInn.Models.JobApplication>)ViewBag.RecentApplications)
+                {
+                    <div class="app-row">
+                        <div class="app-logo-wrap">
+                            <div class="app-logo" style="background:#0d948820">
+                                <span>@app.Job.Company.Name.Substring(0, 2).ToUpper()</span>
+                            </div>
+                        </div>
+                        <div class="app-info">
+                            <p class="app-title">@app.Job.Title</p>
+                            <p class="app-company">@app.User.FullName &middot; @app.Job.Company.Name</p>
+                            <p class="app-date">Applied @app.AppliedAt.ToString("MMM dd, yyyy")</p>
+                        </div>
+                        <div class="app-right">
+                            <span class="status-badge badge-@app.Status.ToLower()">@app.Status</span>
+                            <a asp-controller="Jobs" asp-action="Details"
+                                   asp-route-id="@app.JobId" class="btn-view">
+                                View Job
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <p style="color:#888">No applications yet.</p>
+            </div>
+        }
+    </div>
+
+    <!-- ALL USERS -->
+    <div class="dash-section reveal-item">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-dot amber-dot"></span>
+                All Users
+            </h2>
+        </div>
+
+        <div class="applications-list">
+            @foreach (var user in (List<CareerInn.Models.User>)ViewBag.AllUsers)
+            {
+                <div class="app-row">
+                    <div class="app-logo-wrap">
+                        <div class="app-logo" style="background:#0d948820">
+                            <span>@user.FullName.Substring(0, 1).ToUpper()</span>
+                        </div>
+                    </div>
+                    <div class="app-info">
+                        <p class="app-title">@user.FullName</p>
+                        <p class="app-company">@user.Email</p>
+                        <p class="app-date">Joined @user.CreatedAt.ToString("MMM dd, yyyy")</p>
+                    </div>
+                    <div class="app-right">
+                        <span class="status-badge badge-applied">@user.Role</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,150 @@
+﻿@model List<CareerInn.Models.JobApplication>
+
+@{
+    ViewData["Title"] = "Applications";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+}
+
+<div class="dash-root">
+
+    <div class="dash-ambient" aria-hidden="true">
+        <span class="ambient-blob blob-1"></span>
+        <span class="ambient-blob blob-2"></span>
+        <span class="ambient-blob blob-3"></span>
+    </div>
+
+    <!-- HERO -->
+    <header class="dash-hero reveal-item">
+        <div class="hero-left">
+            <div class="hero-avatar">
+                <span class="avatar-ring"></span>
+                <div class="avatar-fallback" style="display:flex">
+                    <span>@ViewBag.CompanyName.Substring(0, 1).ToUpper()</span>
+                </div>
+                <span class="avatar-status-dot" title="Active"></span>
+            </div>
+            <div class="hero-text">
+                <p class="hero-greeting">Company Panel ✦</p>
+                <h1 class="hero-name">Applications for <em>@ViewBag.CompanyName</em></h1>
+                <p class="hero-sub">Review and manage all job applications here.</p>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-quick-stats">
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.TotalApplications</span>
+                    <span class="qs-lbl">Total</span>
+                </div>
+                <div class="qs-divider"></div>
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.PendingApplications</span>
+                    <span class="qs-lbl">Pending</span>
+                </div>
+                <div class="qs-divider"></div>
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.AcceptedApplications</span>
+                    <span class="qs-lbl">Accepted</span>
+                </div>
+                <div class="qs-divider"></div>
+                <div class="qs-item">
+                    <span class="qs-num">@ViewBag.RejectedApplications</span>
+                    <span class="qs-lbl">Rejected</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success mb-3">@TempData["SuccessMessage"]</div>
+    }
+
+    <!-- APPLICATIONS LIST -->
+    <div class="dash-section reveal-item">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-dot teal-dot"></span>
+                All Applications
+            </h2>
+            <a asp-controller="Company" asp-action="Dashboard" class="btn-view">
+                Back to Dashboard
+            </a>
+        </div>
+
+        @if (Model.Count > 0)
+        {
+            <div class="applications-list">
+                @foreach (var app in Model)
+                {
+                    <div class="app-row">
+                        <div class="app-logo-wrap">
+                            <div class="app-logo" style="background:#0d948820">
+                                <span>@app.User.FullName.Substring(0, 1).ToUpper()</span>
+                            </div>
+                        </div>
+                        <div class="app-info">
+                            <p class="app-title">@app.User.FullName</p>
+                            <p class="app-company">@app.Job.Title &middot; @app.User.Email</p>
+                            <p class="app-date">Applied @app.AppliedAt.ToString("MMM dd, yyyy")</p>
+                            @if (!string.IsNullOrEmpty(app.CoverLetter))
+                            {
+                                <p class="app-date" style="color:#555;margin-top:4px;">
+                                    "@app.CoverLetter.Substring(0, Math.Min(80, app.CoverLetter.Length))..."
+                                </p>
+                            }
+                        </div>
+                        <div class="app-right">
+                            <span class="status-badge badge-@app.Status.ToLower()">@app.Status</span>
+
+                            @if (app.ResumePath != null)
+                            {
+                                <a href="@app.ResumePath" target="_blank" class="btn-view">
+                                    Resume
+                                </a>
+                            }
+
+                            @if (app.Status == "Pending")
+                            {
+                                <form asp-action="UpdateStatus" asp-controller="Company"
+                                      method="post" style="display:inline;">
+                                    <input type="hidden" name="applicationId" value="@app.Id" />
+                                    <input type="hidden" name="status" value="Accepted" />
+                                    <button type="submit" class="btn-view"
+                                            style="background:#0d9488;color:#fff;border:none;">
+                                        Accept
+                                    </button>
+                                </form>
+                                <form asp-action="UpdateStatus" asp-controller="Company"
+                                      method="post" style="display:inline;">
+                                    <input type="hidden" name="applicationId" value="@app.Id" />
+                                    <input type="hidden" name="status" value="Rejected" />
+                                    <button type="submit" class="btn-view"
+                                            style="background:#ef4444;color:#fff;border:none;">
+                                        Reject
+                                    </button>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <p style="color:#888">No applications received yet.</p>
+                <a asp-controller="Company" asp-action="PostJob" class="btn-view mt-3">
+                    Post a Job
+                </a>
+            </div>
+        }
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+}

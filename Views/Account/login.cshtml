@@ -1,0 +1,139 @@
+﻿@model CareerInn.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+}
+
+<section class="ci-login-page">
+
+    <div class="ci-login-glow ci-glow-1"></div>
+    <div class="ci-login-glow ci-glow-2"></div>
+    <div class="ci-login-glow ci-glow-3"></div>
+
+    <div class="container">
+        <div class="row align-items-center min-vh-100 g-5">
+
+            <!-- LEFT CONTENT -->
+            <div class="col-lg-6">
+                <div class="ci-login-content" data-aos="fade-right">
+
+                    <div class="ci-section-pill mb-4">Welcome Back</div>
+
+                    <h1 class="ci-login-title">Your Career Starts Here</h1>
+                    <p class="ci-login-subtitle">Secure access to your professional dashboard.</p>
+
+                    <div class="ci-feature-list mt-5">
+                        <div class="ci-feature-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="ci-feature-icon"><i class="fas fa-briefcase"></i></div>
+                            <div>
+                                <h5>Smart Job Matching</h5>
+                                <p>Discover jobs tailored to your skills and goals.</p>
+                            </div>
+                        </div>
+                        <div class="ci-feature-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="ci-feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h5>Verified Employers</h5>
+                                <p>Apply confidently with trusted companies.</p>
+                            </div>
+                        </div>
+                        <div class="ci-feature-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="ci-feature-icon"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <h5>Career Growth Tools</h5>
+                                <p>Track applications and professional progress.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ci-mini-stats mt-5" data-aos="fade-up" data-aos-delay="400">
+                        <div class="ci-stat-card"><h3>10K+</h3><span>Users</span></div>
+                        <div class="ci-stat-card"><h3>500+</h3><span>Companies</span></div>
+                        <div class="ci-stat-card"><h3>1K+</h3><span>Jobs</span></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT FORM -->
+            <div class="col-lg-6">
+                <div class="ci-login-card" data-aos="zoom-in">
+
+                    <div class="ci-form-header">
+                        <h2>Sign In</h2>
+                        <p>Access your CareerInn account</p>
+                    </div>
+
+                    @* Success message after register *@
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                    }
+
+                    <form asp-action="Login" asp-controller="Account" method="post">
+                        @if (ViewData.ModelState.ContainsKey("") && ViewData.ModelState[""].Errors.Count > 0)
+                        {
+                            <div class="alert alert-danger">
+                                @ViewData.ModelState[""].Errors[0].ErrorMessage
+                            </div>
+                        }
+
+                        <div class="mb-4">
+                            <label class="form-label">Email Address</label>
+                            <div class="ci-input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input asp-for="Email"
+                                       class="form-control ci-input"
+                                       placeholder="Enter your email" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger" style="font-size:0.8rem;"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <div class="ci-input-group">
+                                <i class="fas fa-lock"></i>
+                                <input asp-for="Password"
+                                       type="password"
+                                       class="form-control ci-input"
+                                       placeholder="Enter your password" />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger" style="font-size:0.8rem;"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember Me</label>
+                            </div>
+                            <a href="#" class="ci-forgot-link">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn ci-login-btn w-100">
+                            Login to CareerInn
+                        </button>
+
+                    </form>
+                    <div class="ci-register-link text-center mt-4">
+                        Don't have an account?
+                        <a asp-controller="Account" asp-action="Register">Create Account</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+@section Scripts {
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/js/login.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

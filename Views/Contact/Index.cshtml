@@ -1,0 +1,505 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/contact.css" />
+}
+
+<!-- ═══════════════════════════════════════════
+     1. HERO SECTION
+═══════════════════════════════════════════ -->
+<section class="contact-hero">
+    <div class="hero-bg-mesh"></div>
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
+
+    <div class="container position-relative">
+        <div class="hero-content text-center">
+            <span class="hero-eyebrow" data-aos="fade-down" data-aos-duration="600">
+                <span class="eyebrow-dot"></span> Get In Touch
+            </span>
+            <h1 class="hero-title" data-aos="fade-down" data-aos-delay="100" data-aos-duration="700">
+                We'd Love to <span class="title-accent">Hear From You</span>
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-down" data-aos-delay="200" data-aos-duration="700">
+                Have a question, a suggestion, or just want to say hello?<br class="d-none d-md-block" />
+                Our team is here and ready to help you move your career forward.
+            </p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">
+                <a href="#contact-form" class="btn-hero-primary">Send a Message</a>
+                <a href="#contact-info" class="btn-hero-ghost">Our Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-wave">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--ci-bg)" />
+        </svg>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     2. CONTACT INFO CARDS
+═══════════════════════════════════════════ -->
+<section id="contact-info" class="contact-info-section">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+
+            <!-- Email -->
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0" data-aos-duration="600">
+                <div class="info-card">
+                    <div class="info-card__icon-wrap info-card__icon-wrap--amber">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22,7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                    </div>
+                    <h3 class="info-card__label">Email Us</h3>
+                    <p class="info-card__value">support@careerinn.io</p>
+                    <p class="info-card__sub">careers@careerinn.io</p>
+                    <a href="mailto:support@careerinn.io" class="info-card__action">Send Email →</a>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+                <div class="info-card">
+                    <div class="info-card__icon-wrap info-card__icon-wrap--blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.6 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.51 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </div>
+                    <h3 class="info-card__label">Call Us</h3>
+                    <p class="info-card__value">+92 (300) 123-4567</p>
+                    <p class="info-card__sub">Mon – Fri, 9am – 6pm</p>
+                    <a href="tel:+923001234567" class="info-card__action">Call Now →</a>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                <div class="info-card">
+                    <div class="info-card__icon-wrap info-card__icon-wrap--green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <h3 class="info-card__label">Visit Us</h3>
+                    <p class="info-card__value">Lahore, Pakistan</p>
+                    <p class="info-card__sub">DHA Phase 5, Main Blvd.</p>
+                    <a href="#map-section" class="info-card__action">View Map →</a>
+                </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                <div class="info-card">
+                    <div class="info-card__icon-wrap info-card__icon-wrap--violet">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 class="info-card__label">Working Hours</h3>
+                    <p class="info-card__value">Mon – Fri</p>
+                    <p class="info-card__sub">9:00 AM – 6:00 PM PKT</p>
+                    <span class="info-card__badge">Open Today</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     3. CONTACT FORM SECTION
+═══════════════════════════════════════════ -->
+<section id="contact-form" class="contact-form-section">
+    <div class="container">
+
+        <div class="section-header text-center" data-aos="fade-up" data-aos-duration="600">
+            <span class="section-tag">Send A Message</span>
+            <h2 class="section-title">Let's Start a Conversation</h2>
+            <p class="section-desc">Fill in the form below and we'll get back to you within 24 hours.</p>
+        </div>
+
+        <div class="row g-5 align-items-center">
+
+            <!-- Form Column -->
+            <div class="col-12 col-lg-6" data-aos="fade-right" data-aos-duration="700" data-aos-delay="100">
+                <div class="form-card">
+
+                    <!-- Success Message (hidden by default) -->
+                    <div id="successMessage" class="success-banner d-none">
+                        <div class="success-banner__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Message Sent!</strong>
+                            <p>Thank you for reaching out. We'll respond within 24 hours.</p>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" novalidate>
+
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <div class="input-wrapper">
+                                        <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                            <circle cx="12" cy="7" r="4" />
+                                        </svg>
+                                        <input type="text" id="fullName" name="fullName"
+                                               class="form-control ci-input"
+                                               placeholder="John Doe" required />
+                                    </div>
+                                    <div class="field-error" id="nameError"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <div class="input-wrapper">
+                                        <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                                            <path d="m22,7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                        </svg>
+                                        <input type="email" id="email" name="email"
+                                               class="form-control ci-input"
+                                               placeholder="you@example.com" required />
+                                    </div>
+                                    <div class="field-error" id="emailError"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                </svg>
+                                <input type="text" id="subject" name="subject"
+                                       class="form-control ci-input"
+                                       placeholder="How can we help?" required />
+                            </div>
+                            <div class="field-error" id="subjectError"></div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="message" class="form-label">Message</label>
+                            <div class="input-wrapper input-wrapper--textarea">
+                                <svg class="input-icon input-icon--top" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                                <textarea id="message" name="message"
+                                          class="form-control ci-input ci-textarea"
+                                          placeholder="Tell us what's on your mind..." rows="5" required></textarea>
+                            </div>
+                            <div class="field-error" id="messageError"></div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" id="submitBtn" class="btn-submit">
+                                <span class="btn-submit__text">Send Message</span>
+                                <span class="btn-submit__icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13" />
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                    </svg>
+                                </span>
+                                <span class="btn-submit__loader d-none">
+                                    <span class="spinner"></span>
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- Decorative Side Panel -->
+            <div class="col-12 col-lg-6" data-aos="fade-left" data-aos-duration="700" data-aos-delay="200">
+                <div class="contact-side-panel">
+
+                    <div class="side-panel__badge">
+                        <span class="badge-dot"></span> Support Available
+                    </div>
+                    <h2 class="side-panel__title">We're Here to <br /><span>Help You Succeed</span></h2>
+                    <p class="side-panel__body">
+                        Whether you're a job seeker exploring new opportunities or an employer
+                        looking for top talent, our team is ready to assist you at every step.
+                    </p>
+
+                    <div class="side-panel__stats">
+                        <div class="stat-item">
+                            <span class="stat-num">24h</span>
+                            <span class="stat-label">Response Time</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">50K+</span>
+                            <span class="stat-label">Happy Users</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">98%</span>
+                            <span class="stat-label">Satisfaction</span>
+                        </div>
+                    </div>
+
+                    <div class="side-panel__features">
+                        <div class="feature-row">
+                            <div class="feature-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                            </div>
+                            <span>Dedicated support team available weekdays</span>
+                        </div>
+                        <div class="feature-row">
+                            <div class="feature-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                            </div>
+                            <span>Live chat and email response within 24 hours</span>
+                        </div>
+                        <div class="feature-row">
+                            <div class="feature-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                            </div>
+                            <span>No automated bots — real people, real answers</span>
+                        </div>
+                    </div>
+
+                    <!-- Decorative floating cards -->
+                    <div class="floating-card floating-card--1">
+                        <div class="fc-avatar">JD</div>
+                        <div class="fc-content">
+                            <span class="fc-name">James Doe</span>
+                            <span class="fc-msg">Got hired in 2 weeks!</span>
+                        </div>
+                        <div class="fc-star">★★★★★</div>
+                    </div>
+                    <div class="floating-card floating-card--2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.6 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.51 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                        <span>+92 300 123 4567</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     4. GOOGLE MAP SECTION
+═══════════════════════════════════════════ -->
+<section id="map-section" class="map-section">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up" data-aos-duration="600">
+            <span class="section-tag">Find Us</span>
+            <h2 class="section-title">Our Location</h2>
+        </div>
+        <div class="map-card" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
+            <div class="map-card__overlay">
+                <div class="map-pin-info">
+                    <div class="pin-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>CareerInn HQ</strong>
+                        <span>DHA Phase 5, Lahore, Pakistan</span>
+                    </div>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108877.48895641218!2d74.23149975!3d31.4826927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904dde29b3e83%3A0x1b548b5a1818d8c3!2sDHA%20Phase%205%20Lahore!5e0!3m2!1sen!2s!4v1699999999999!5m2!1sen!2s"
+                    width="100%"
+                    height="440"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="CareerInn Office Location">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     5. FAQ SECTION
+═══════════════════════════════════════════ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="row align-items-start g-5">
+
+            <div class="col-12 col-lg-4" data-aos="fade-right" data-aos-duration="700">
+                <div class="faq-sidebar">
+                    <span class="section-tag">Quick Answers</span>
+                    <h2 class="section-title">Frequently Asked<br /><span>Questions</span></h2>
+                    <p class="faq-sidebar__desc">
+                        Can't find what you're looking for? Reach out to our support team directly.
+                    </p>
+                    <a href="#contact-form" class="btn-faq-cta">Ask a Question →</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-8" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+                <div class="faq-accordion" id="faqAccordion">
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq1" aria-expanded="true">
+                            <span>How do I apply for jobs on CareerInn?</span>
+                            <div class="faq-chevron">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9" /></svg>
+                            </div>
+                        </button>
+                        <div class="faq-answer" id="faq1">
+                            <p>
+                                Simply create a free account, build your professional profile, and start browsing
+                                thousands of job listings. Click "Apply Now" on any listing to submit your
+                                application in seconds. You can also upload your resume for one-click applications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq2" aria-expanded="false">
+                            <span>How do I contact CareerInn support?</span>
+                            <div class="faq-chevron">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9" /></svg>
+                            </div>
+                        </button>
+                        <div class="faq-answer faq-answer--closed" id="faq2">
+                            <p>
+                                You can reach our support team through the contact form above, via email at
+                                support@careerinn.io, or by calling +92 (300) 123-4567 during business hours.
+                                We guarantee a response within 24 business hours.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq3" aria-expanded="false">
+                            <span>Is CareerInn completely free to use?</span>
+                            <div class="faq-chevron">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9" /></svg>
+                            </div>
+                        </button>
+                        <div class="faq-answer faq-answer--closed" id="faq3">
+                            <p>
+                                Yes! Job seekers can use CareerInn completely free — create a profile, browse
+                                listings, and apply to jobs at no cost. Employers and recruiters have access to
+                                premium features via our affordable plans starting at PKR 2,999/month.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq4" aria-expanded="false">
+                            <span>How long does the hiring process typically take?</span>
+                            <div class="faq-chevron">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9" /></svg>
+                            </div>
+                        </button>
+                        <div class="faq-answer faq-answer--closed" id="faq4">
+                            <p>
+                                It depends on the employer, but most CareerInn employers respond within 5–7
+                                business days. Premium-listed jobs typically move faster, with many candidates
+                                receiving interview invitations within 48 hours of applying.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq5" aria-expanded="false">
+                            <span>Can I post jobs as an employer?</span>
+                            <div class="faq-chevron">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9" /></svg>
+                            </div>
+                        </button>
+                        <div class="faq-answer faq-answer--closed" id="faq5">
+                            <p>
+                                Absolutely. Employers can register for a company account, choose a posting plan,
+                                and publish job listings that reach thousands of qualified candidates. Our
+                                analytics dashboard helps you track applications and manage your hiring pipeline.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     6. SOCIAL MEDIA SECTION
+═══════════════════════════════════════════ -->
+<section class="social-section">
+    <div class="container">
+        <div class="social-inner" data-aos="fade-up" data-aos-duration="700">
+            <div class="social-text">
+                <span class="section-tag">Follow Us</span>
+                <h2 class="section-title">Stay Connected with <span>CareerInn</span></h2>
+                <p>Follow us for the latest job opportunities, career tips, and company news.</p>
+            </div>
+            <div class="social-links">
+                <!-- LinkedIn -->
+                <a href="#" class="social-btn social-btn--linkedin" aria-label="LinkedIn" title="LinkedIn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <!-- GitHub -->
+                <a href="#" class="social-btn social-btn--github" aria-label="GitHub" title="GitHub">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                </a>
+                <!-- Instagram -->
+                <a href="#" class="social-btn social-btn--instagram" aria-label="Instagram" title="Instagram">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <!-- Twitter/X -->
+                <a href="#" class="social-btn social-btn--twitter" aria-label="Twitter" title="Twitter / X">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <!-- Facebook -->
+                <a href="#" class="social-btn social-btn--facebook" aria-label="Facebook" title="Facebook">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    <script src="~/js/contact.js"></script>
+}

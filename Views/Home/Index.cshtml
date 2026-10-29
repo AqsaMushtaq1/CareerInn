@@ -1,0 +1,260 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" />
+}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="ci-hero d-flex align-items-center justify-content-center text-center">
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in-up">
+        <div class="hero-badge mb-3">
+            <i class="fa-solid fa-star-of-life me-2"></i>Your Career Journey Starts Here
+        </div>
+        <h1  class="hero-title">Welcome to <span class="hero-highlight">CareerInn</span></h1>
+        <p class="hero-subtitle">Empowering career through connections</p>
+        <div class="hero-buttons mt-4 d-flex gap-3 justify-content-center flex-wrap">
+            <a href="/Account/login" class="btn ci-btn-primary">
+                <i class="fa-solid fa-right-to-bracket me-2"></i>Login
+            </a>
+            <a href="/Account/register" class="btn ci-btn-outline">
+                <i class="fa-solid fa-user-plus me-2"></i>Register
+            </a>
+        </div>
+        <div class="hero-stats mt-5 d-flex gap-4 justify-content-center flex-wrap">
+            <div class="hero-stat">
+                <span class="stat-num">50K+</span>
+                <span class="stat-label">Jobs Posted</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-num">12K+</span>
+                <span class="stat-label">Companies</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-num">200K+</span>
+                <span class="stat-label">Professionals</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll-indicator">
+        <span></span>
+    </div>
+</section>
+
+<!-- ===== FLASHCARDS / JOB NICHES SECTION ===== -->
+<section class="ci-niches py-5" id="niches">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-anim>
+            <span class="section-tag">Explore Opportunities</span>
+            <h2 class="section-title">Browse Job <span class="text-accent">Niches</span></h2>
+            <p class="section-sub">Discover your next opportunity across top career categories</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+
+            <!-- Card 1: Freelancing -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="0">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h5 class="niche-title">Freelancing</h5>
+                    <p class="niche-desc">Work independently on projects worldwide and build your own schedule.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 2: Data Science & AI -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="100">
+                <<div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h5 class="niche-title">Data Science &amp; AI</h5>
+                    <p class="niche-desc">Harness data and machine learning to drive intelligent decision-making.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 3: Government Jobs -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="200">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-landmark"></i></div>
+                    <h5 class="niche-title">Government Jobs</h5>
+                    <p class="niche-desc">Secure stable public sector roles with excellent benefits and growth.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 4: Software Development -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="300">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-code"></i></div>
+                    <h5 class="niche-title">Software Development</h5>
+                    <p class="niche-desc">Build the future with cutting-edge apps, systems, and platforms.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 5: Digital Marketing -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="0">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h5 class="niche-title">Digital Marketing</h5>
+                    <p class="niche-desc">Drive brand growth through SEO, social media, and content strategy.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 6: Graphic Design -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="100">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h5 class="niche-title">Graphic Design</h5>
+                    <p class="niche-desc">Create stunning visuals that communicate ideas and captivate audiences.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 7: Cyber Security -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="200">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h5 class="niche-title">Cyber Security</h5>
+                    <p class="niche-desc">Protect digital assets and defend organizations from evolving threats.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 8: Cloud Computing -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="300">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h5 class="niche-title">Cloud Computing</h5>
+                    <p class="niche-desc">Architect and manage scalable cloud infrastructure across platforms.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 9: UI/UX Design -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="0">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h5 class="niche-title">UI/UX Design</h5>
+                    <p class="niche-desc">Craft seamless user experiences through research, wireframes, and design.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 10: Remote Jobs -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-anim data-delay="100">
+                <div class="niche-card" style="--card-img: url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80');">
+                    <div class="niche-icon"><i class="fa-solid fa-house-laptop"></i></div>
+                    <h5 class="niche-title">Remote Jobs</h5>
+                    <p class="niche-desc">Find fully remote roles offering flexibility and work-life balance globally.</p>
+                    <a href="#" class="niche-btn">Explore <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== REVIEWS SECTION ===== -->
+<section class="ci-reviews py-5" id="reviews">
+    <div class="container">
+        <div class="section-header text-center mb-5 reveal">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What Our <span class="text-accent">Users Say</span></h2>
+            <p class="section-sub">Real stories from professionals who found their dream careers</p>
+        </div>
+        <div class="reviews-track-wrapper">
+            <div class="reviews-track">
+
+                <div class="review-card" data-anim="fade-left" data-delay="0">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">AK</div>
+                        <div>
+                            <div class="reviewer-name">Ali Khan</div>
+                            <div class="reviewer-role">Senior Software Engineer</div>
+                        </div>
+                    </div>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"CareerInn transformed my job search completely. Within two weeks I had three interviews lined up. The platform is intuitive and the job matches are incredibly relevant."</p>
+                </div>
+
+                <<div class="review-card" data-anim="fade-left" data-delay="150">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: linear-gradient(135deg,#ee0979,#ff6a00);">SR</div>
+                        <div>
+                            <div class="reviewer-name">Sara Raza</div>
+                            <div class="reviewer-role">UI/UX Designer</div>
+                        </div>
+                    </div>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Finally a platform that understands creative professionals. The UI/UX niche section alone has more quality postings than any other job board I've used."</p>
+                </div>
+
+                <div class="review-card" data-anim="fade-left" data-delay="300">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: linear-gradient(135deg,#11998e,#38ef7d);">HM</div>
+                        <div>
+                            <div class="reviewer-name">Hassan Mirza</div>
+                            <div class="reviewer-role">Data Scientist</div>
+                        </div>
+                    </div>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <p class="review-text">"The Data Science & AI category is phenomenal. I got connected with a top fintech startup and landed a role I actually love. Highly recommend CareerInn!"</p>
+                </div>
+
+                <div class="review-card" data-anim="fade-left" data-delay="0">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: linear-gradient(135deg,#2193b0,#6dd5ed);">FN</div>
+                        <div>
+                            <div class="reviewer-name">Fatima Noor</div>
+                            <div class="reviewer-role">Cloud Solutions Architect</div>
+                        </div>
+                    </div>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"After years of job hunting on generic platforms, CareerInn was a breath of fresh air. The cloud computing section helped me land an AWS architect role within a month."</p>
+                </div>
+
+                <div class="review-card" data-anim="fade-left" data-delay="150">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: linear-gradient(135deg,#f7971e,#ffd200); color:#1a1a2e;">OM</div>
+                        <div>
+                            <div class="reviewer-name">Omar Malik</div>
+                            <div class="reviewer-role">Digital Marketing Lead</div>
+                        </div>
+                    </div>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"CareerInn's digital marketing listings are curated and current. No more scrolling through outdated posts. The filtering system is top-notch — 10/10!"</p>
+                </div>
+
+                <div class="review-card" data-anim="fade-left" data-delay="300">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: linear-gradient(135deg,#134e5e,#71b280);">ZA</div>
+                        <div>
+                            <div class="reviewer-name">Zara Ahmed</div>
+                            <div class="reviewer-role">Remote Product Manager</div>
+                        </div>
+                    </div>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <p class="review-text">"The remote jobs section is what I needed. I found a fully remote position at a US-based company without leaving Lahore. CareerInn made it possible!"</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/js/home.js"></script>
+}
